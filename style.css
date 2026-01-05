@@ -1,15 +1,17 @@
 /* =========================================
    1. GLOBAL RESET & BASIC STYLES
-   (Mengatur font default dan background)
+   (Tema: Fhrydl Downloader - Dark Blue Gradient)
 ========================================= */
 * {
   margin: 0; padding: 0; box-sizing: border-box;
-  font-family: 'Inter', sans-serif; scroll-behavior: smooth;
+  font-family: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  scroll-behavior: smooth;
 }
 
 body {
-  background: #0b0b0f; /* Warna dasar gelap */
-  color: #e5e7eb;      /* Warna teks abu terang */
+  /* Mengambil gradient background dari Fhrydl Downloader */
+  background: linear-gradient(135deg, #020617 0%, #0f172a 50%, #1e3a8a 100%);
+  color: #f1f5f9;      /* Warna teks putih terang */
   line-height: 1.6;
   overflow-x: hidden; 
   position: relative; 
@@ -25,8 +27,8 @@ body {
 }
 
 /* =========================================
-   2. SHOOTING STAR BACKGROUND
-   (Efek bintang jatuh di latar belakang)
+   2. SHOOTING STAR BACKGROUND (Recolored)
+   (Diubah jadi nuansa Biru/Putih)
 ========================================= */
 .night {
   position: fixed; top: 0; left: 0; width: 100%; height: 100%;
@@ -34,13 +36,15 @@ body {
 }
 .shooting_star {
   position: absolute; height: 2px;
-  background: linear-gradient(-45deg, #14B8A6, rgba(0, 0, 255, 0));
-  border-radius: 999px; filter: drop-shadow(0 0 6px #14B8A6);
+  /* Ubah gradient jadi Biru */
+  background: linear-gradient(-45deg, #3b82f6, rgba(0, 0, 255, 0));
+  border-radius: 999px; filter: drop-shadow(0 0 6px #3b82f6);
   animation: tail 3000ms ease-in-out infinite, shooting 3000ms ease-in-out infinite;
 }
 .shooting_star::before, .shooting_star::after {
   content: ''; position: absolute; top: calc(50% - 1px); right: 0; height: 2px;
-  background: linear-gradient(-45deg, rgba(0, 0, 255, 0), #14B8A6, rgba(0, 0, 255, 0));
+  /* Ubah gradient jadi Biru */
+  background: linear-gradient(-45deg, rgba(0, 0, 255, 0), #3b82f6, rgba(0, 0, 255, 0));
   transform: translateX(50%) rotateZ(45deg); border-radius: 100%;
   animation: shining 3000ms ease-in-out infinite;
 }
@@ -55,8 +59,7 @@ body {
 @keyframes shining { 0% { width: 0; } 50% { width: 30px; } 100% { width: 0; } }
 
 /* =========================================
-   3. NAVBAR (Updated)
-   (Menu Navigasi Besar & Rata Tengah)
+   3. NAVBAR (Updated Theme)
 ========================================= */
 .navbar {
   position: fixed; 
@@ -65,11 +68,14 @@ body {
   transform: translateX(-50%);
   width: 92%; 
   max-width: 1050px; 
-  padding: 15px 30px; /* DIUBAH: Padding kiri-kanan dikurangi dari 50px jadi 30px */
+  padding: 15px 30px;
   
-  background: rgba(11, 11, 15, 0.8);
-  backdrop-filter: blur(15px);
+  /* Glassmorphism ala Downloader */
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
   border: 1px solid rgba(255, 255, 255, 0.1);
+  
   border-radius: 60px;
   z-index: 1000;
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
@@ -77,58 +83,49 @@ body {
 
 .nav-container { 
   display: flex; 
-  justify-content: center; /* PENTING: Membuat menu berada di tengah */
+  justify-content: center; 
   align-items: center; 
 }
 
-/* Class .logo dihapus karena Anda sudah menghapus teksnya di HTML */
-
 .nav-menu { 
   display: flex; 
-  gap: 25px; /* DIKURANGI: Dari 45px jadi 25px agar muat 5 menu */
+  gap: 25px; 
   justify-content: center;
   align-items: center;
 }
 
-
 .nav-menu a {
-  color: #d1d5db; 
+  color: #cbd5e1; /* Abu kebiruan terang */
   text-decoration: none; 
-  
-  /* Font Menu Diperbesar */
   font-size: 16px; 
   font-weight: 600; 
-  
   position: relative; 
   transition: 0.3s;
   letter-spacing: 0.5px;
 }
 
-/* Warna saat disorot atau aktif */
+/* Warna saat disorot atau aktif jadi Biru */
 .nav-menu a:hover, .nav-menu a.active { 
-  color: #14B8A6; /* Hijau Tosca */
+  color: #60a5fa; /* Biru Muda */
+  text-shadow: 0 0 10px rgba(96, 165, 250, 0.4);
 }
 
-/* Garis bawah animasi saat hover */
 .nav-menu a::after {
   content: ''; position: absolute; 
   width: 0; height: 3px; 
   bottom: -6px; left: 0; 
-  background-color: #14B8A6; 
+  background-color: #3b82f6; /* Garis Biru */
   transition: width 0.3s;
   border-radius: 2px;
 }
 .nav-menu a:hover::after, .nav-menu a.active::after { width: 100%; }
 
 /* =========================================
-   4. HERO SECTION (Updated)
-   (Bagian Banner Utama)
+   4. HERO SECTION
 ========================================= */
 .hero {
   display: flex; flex-direction: column; justify-content: flex-start;
   position: relative; 
-  
-  /* UPDATE: Padding dikurangi jadi 90px agar Banner naik ke atas */
   padding-top: 90px; 
   padding-bottom: 20px;
 }
@@ -136,9 +133,10 @@ body {
 .banner-wrapper {
   width: 100%; height: 250px; border-radius: 20px; overflow: hidden;
   position: relative; z-index: 0; margin: 0 auto; max-width: 1000px;
-  box-shadow: 0 10px 40px rgba(0,0,0,0.5); border: 1px solid rgba(255,255,255,0.05);
+  box-shadow: 0 10px 40px rgba(0,0,0,0.5); 
+  border: 1px solid rgba(255,255,255,0.1);
 }
-.hero-banner { width: 100%; height: 100%; object-fit: cover; filter: brightness(0.5); }
+.hero-banner { width: 100%; height: 100%; object-fit: cover; filter: brightness(0.6); }
 
 .hero-content {
   text-align: center; margin-top: -75px; padding: 0 20px; position: relative; z-index: 10;
@@ -146,41 +144,40 @@ body {
 
 .profile-img {
   width: 140px; height: 140px; border-radius: 50%;
-  border: 5px solid #0b0b0f; background: #0b0b0f;
-  object-fit: cover; box-shadow: 0 0 20px rgba(20, 184, 166, 0.3);
+  /* Border warna background body agar menyatu */
+  border: 5px solid #0f172a; background: #0f172a;
+  object-fit: cover; 
+  box-shadow: 0 0 20px rgba(59, 130, 246, 0.4); /* Glow Biru */
 }
 
 .hero-title {
-  font-size: 42px; font-weight: 700; margin-top: 10px;
-  background: linear-gradient(to right, #14B8A6, #fff, #14B8A6);
-  background-size: 200% auto;
-  -webkit-background-clip: text; -webkit-text-fill-color: transparent;
-  animation: shine 3s linear infinite;
+  font-size: 42px; font-weight: 800; margin-top: 10px;
+  /* Gradient Teks Biru ala Downloader */
+  background: linear-gradient(to right, #60a5fa, #3b82f6);
+  -webkit-background-clip: text; 
+  -webkit-text-fill-color: transparent;
+  /* Hapus animasi shine agar lebih elegan/static seperti downloader, atau biarkan jika suka */
 }
-@keyframes shine { to { background-position: 200% center; } }
 
-.hero-desc { margin-top: 10px; font-size: 1.1em; color: #d1d5db; min-height: 24px; }
+.hero-desc { margin-top: 10px; font-size: 1.1em; color: #94a3b8; min-height: 24px; }
 
 .commission-badge { margin: 20px 0; }
 .commission-badge span {
-  background: rgba(20, 184, 166, 0.2); color: #14B8A6;
-  padding: 6px 12px; border-radius: 20px; font-size: 0.75em; border: 1px solid #14B8A6;
+  /* Badge style biru muda transparan */
+  background: rgba(59, 130, 246, 0.1); color: #60a5fa;
+  padding: 6px 12px; border-radius: 20px; font-size: 0.75em; 
+  border: 1px solid rgba(59, 130, 246, 0.3);
 }
 
 /* =========================================
-   5. BUBBLE CHAT (Animasi Teks Melayang)
+   5. BUBBLE CHAT
 ========================================= */
-.profile-wrapper {
-  position: relative;
-  display: inline-block;
-}
+.profile-wrapper { position: relative; display: inline-block; }
 
 .mager-bubble {
-  /* --- DESKTOP --- */
-  position: absolute;
-  top: 10px; left: 100%; margin-left: 15px;
+  position: absolute; top: 10px; left: 100%; margin-left: 15px;
   width: 150px; height: 55px;
-  background-color: #ffffff; color: #000000;
+  background-color: #ffffff; color: #020617; /* Teks gelap di bubble putih */
   display: flex; flex-direction: column; justify-content: center;
   align-items: flex-start; padding: 0 15px;         
   border-radius: 15px; border-bottom-left-radius: 0;
@@ -195,7 +192,6 @@ body {
   transform: translateY(-5px); 
 }
 
-/* --- ANIMASI TEKS --- */
 .text-line {
   display: block; white-space: nowrap; overflow: hidden;
   font-size: 11px; font-weight: 700; line-height: 1.5; width: 0;
@@ -203,105 +199,115 @@ body {
 .baris-1 { animation: typing1 10s steps(30) infinite; }
 .baris-2 { animation: typing2 10s steps(30) infinite; }
 
-@keyframes typing1 {
-  0% { width: 0; } 20% { width: 100%; } 90% { width: 100%; } 100% { width: 0; }
-}
-@keyframes typing2 {
-  0%, 20% { width: 0; } 40% { width: 100%; } 90% { width: 100%; } 100% { width: 0; }
-}
-@keyframes floatMager {
-  0%, 100% { transform: translateY(0); } 50% { transform: translateY(-8px); }
-}
+@keyframes typing1 { 0% { width: 0; } 20% { width: 100%; } 90% { width: 100%; } 100% { width: 0; } }
+@keyframes typing2 { 0%, 20% { width: 0; } 40% { width: 100%; } 90% { width: 100%; } 100% { width: 0; } }
+@keyframes floatMager { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-8px); } }
 
-/* =========================================
-   KHUSUS HP (BUBBLE CHAT FIX)
-========================================= */
 @media (max-width: 768px) {
-  /* Navbar menempel di atas agar lebih luas */
-  .navbar { 
-    width: 100%; 
-    top: 0; 
-    border-radius: 0 0 20px 20px; /* Sudut tumpul hanya di bawah */
-    padding: 15px 10px;
-  }
-  
-  /* Menu di HP Font-nya dikecilkan & Jarak dirapatkan */
-  .nav-menu { 
-    gap: 12px; 
-  }
-  
-  .nav-menu a {
-    font-size: 13px; /* Ukuran font lebih kecil biar muat */
-  }
+  .navbar { width: 100%; top: 0; border-radius: 0 0 20px 20px; padding: 15px 10px; }
+  .nav-menu { gap: 12px; }
+  .nav-menu a { font-size: 13px; }
 }
-
 
 /* =========================================
-   6. SECTIONS & CARDS (Layanan, Tools, dll)
+   6. SECTIONS & CARDS (Tema Kaca/Glass)
 ========================================= */
-.section { padding: 20px 24px; max-width: 900px; margin: auto; position: relative; z-index: 10; } section,
-main {
-  backdrop-filter: blur(6px);
-  background: rgba(255, 255, 255, 0.05);
+.section { padding: 20px 24px; max-width: 900px; margin: auto; position: relative; z-index: 10; } 
+
+/* Hapus backdrop main default agar tidak bentrok dengan body gradient */
+section, main { background: transparent; }
+
+.section-title { 
+  font-size: 28px; 
+  margin-bottom: 20px; 
+  border-left: 5px solid #3b82f6; /* Border Biru */
+  padding-left: 15px; 
+  color: #f8fafc;
 }
-.section-title { font-size: 28px; margin-bottom: 20px; border-left: 5px solid #14B8A6; padding-left: 15px; }
+
 .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; }
 
 .card {
-  background: rgba(22, 27, 34, 0.6); backdrop-filter: blur(10px);
+  /* Gaya Glassmorphism Persis Fhrydl Downloader */
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  
   padding: 30px 20px; border-radius: 16px; font-weight: 600; text-align: center;
-  border: 1px solid rgba(255, 255, 255, 0.05); transition: 0.3s;
+  transition: 0.3s;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
 }
-.card:hover { transform: translateY(-5px); border-color: #14B8A6; box-shadow: 0 10px 30px rgba(20, 184, 166, 0.1); }
+
+.card:hover { 
+  transform: translateY(-5px); 
+  border-color: #3b82f6; /* Hover Border Biru */
+  box-shadow: 0 10px 30px rgba(59, 130, 246, 0.15); 
+}
+
 .text-left { text-align: left; }
-.card-head { color: #14B8A6; margin-bottom: 10px; }
-.service-list { list-style: none; padding: 0; font-size: 0.9em; color: #d1d5db; }
+.card-head { color: #60a5fa; margin-bottom: 10px; } /* Judul Card Biru Muda */
+.service-list { list-style: none; padding: 0; font-size: 0.9em; color: #cbd5e1; }
 
+/* Tombol Utama (Gradient Blue) */
 .btn {
-  display: inline-block; padding: 10px 28px; background: #14B8A6; color: #0b0b0f;
+  display: inline-block; padding: 10px 28px; 
+  /* Gradient Biru tombol downloader */
+  background: linear-gradient(to right, #2563eb, #1d4ed8);
+  color: #ffffff;
   border-radius: 30px; font-weight: 600; text-decoration: none; transition: 0.3s; margin-top: 10px;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
 }
-.btn:hover { transform: scale(1.05); box-shadow: 0 0 20px rgba(20, 184, 166, 0.4); }
+.btn:hover { 
+  transform: scale(1.05); 
+  box-shadow: 0 10px 15px -3px rgba(37, 99, 235, 0.4);
+}
 
-.tools-title { text-align: center; margin-bottom: 20px; color: #9ca3af; }
+/* Tombol Tools */
+.tools-title { text-align: center; margin-bottom: 20px; color: #94a3b8; }
 .tools-container { display: flex; flex-wrap: wrap; justify-content: center; gap: 15px; }
-.tool-badge { border: 1px solid #14B8A6; color: #14B8A6; padding: 8px 20px; border-radius: 50px; font-size: 0.9em; }
+.tool-badge { 
+  border: 1px solid #3b82f6; color: #60a5fa; 
+  padding: 8px 20px; border-radius: 50px; font-size: 0.9em; 
+  background: rgba(37, 99, 235, 0.1);
+}
 
 .workflow-grid { display: flex; flex-wrap: wrap; justify-content: center; gap: 20px; text-align: center; }
 .workflow-item { flex: 1; min-width: 150px; }
 .wf-icon { font-size: 2rem; margin-bottom: 10px; }
 
 /* Contact */
-.contact-info { margin-top: 10px; }
-.contact a { color: #e5e7eb; text-decoration: none; font-weight: 600; transition: 0.3s; }
-.contact a:hover { color: #14B8A6; }
+.contact-info { margin-top: 10px; color: #cbd5e1; }
+.contact a { color: #f1f5f9; text-decoration: none; font-weight: 600; transition: 0.3s; }
+.contact a:hover { color: #3b82f6; }
 .location-box { margin-top: 25px; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 20px; }
-.loc-title { color: #14B8A6; font-weight: bold; }
+.loc-title { color: #3b82f6; font-weight: bold; }
 
 /* Footer & Music */
-footer { text-align: center; padding: 25px 20px; color: #4b5563; font-size: 14px; margin-top: auto; }
+footer { text-align: center; padding: 25px 20px; color: #64748b; font-size: 14px; margin-top: auto; }
+
 .music-player {
-  position: fixed; bottom: 30px; left: 30px; background: rgba(11, 11, 15, 0.8);
-  border: 1px solid #14B8A6; padding: 10px 15px; border-radius: 30px; cursor: pointer;
-  z-index: 999; font-size: 12px; transition: 0.3s;
+  position: fixed; bottom: 30px; left: 30px; 
+  background: rgba(15, 23, 42, 0.9);
+  border: 1px solid #3b82f6; 
+  padding: 10px 15px; border-radius: 30px; cursor: pointer;
+  z-index: 999; font-size: 12px; transition: 0.3s; color: #fff;
 }
-.music-player:hover { background: #14B8A6; color: #000; }
+.music-player:hover { background: #2563eb; color: #fff; }
+
 .reveal { opacity: 0; transform: translateY(30px); transition: all 0.8s ease-out; }
 .reveal.active { opacity: 1; transform: translateY(0); }
+
 ::-webkit-scrollbar { width: 10px; }
-::-webkit-scrollbar-track { background: #0b0b0f; }
-::-webkit-scrollbar-thumb { background: #333; border-radius: 5px; }
+::-webkit-scrollbar-track { background: #020617; }
+::-webkit-scrollbar-thumb { background: #334155; border-radius: 5px; }
 
 /* =========================================
    7. MOBILE RESPONSIVE (HP)
 ========================================= */
 @media (max-width: 768px) {
-  /* Di HP, navbar dikecilkan lagi padding-nya agar muat */
   .navbar { width: 95%; top: 10px; padding: 10px 20px; }
-  
-  /* Jarak menu di HP dirapatkan sedikit */
   .nav-menu { gap: 15px; }
-  
   .banner-wrapper { height: 180px; border-radius: 0; width: 100%; }
   .hero-content { margin-top: -60px; }
   .profile-img { width: 100px; height: 100px; border-width: 3px; }
@@ -309,107 +315,58 @@ footer { text-align: center; padding: 25px 20px; color: #4b5563; font-size: 14px
   .mager-bubble { left: 75px; top: -25px; font-size: 10px; right: auto; min-width: 100px; }
 }
 
-/* === Animated Gradient Background === */
+/* === Animated Gradient Background (Optional: Dihapus atau Disamarkan agar sesuai tema Downloader) === */
 .animated-gradient {
-  position: fixed;
-  inset: 0;
-  z-index: -1;
-  background: linear-gradient(
-    120deg,
-    #0f2027,
-    #203a43,
-    #2c5364,
-    #1a2a6c
-  );
-  background-size: 400% 400%;
-  animation: gradientMove 18s ease infinite;
-}
-
-/* Animasi */
-@keyframes gradientMove {
-  0% {
-    background-position: 0% 50%;
-  }
-  50% {
-    background-position: 100% 50%;
-  }
-  100% {
-    background-position: 0% 50%;
-  }
+  /* Kita timpa dengan transparan karena body sudah punya gradient utama */
+  position: fixed; inset: 0; z-index: -1;
+  background: transparent; 
 }
 
 /* =========================================
-   8. PROJECT PAGE STYLES (Tambahan Baru)
+   8. PROJECT PAGE STYLES
 ========================================= */
 
-/* Mengatur layout kartu proyek */
 .project-card {
-  padding: 0; /* Reset padding bawaan card */
-  overflow: hidden; /* Agar gambar tidak keluar radius */
+  padding: 0; 
+  overflow: hidden; 
   display: flex;
   flex-direction: column;
   text-align: left;
+  /* Pakai border glass */
+  border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .img-wrapper {
-  width: 100%;
-  height: 180px;
-  overflow: hidden;
+  width: 100%; height: 180px; overflow: hidden;
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .project-card img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover; /* Gambar full mengisi kotak */
-  transition: transform 0.5s ease;
+  width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease;
 }
+.project-card:hover img { transform: scale(1.1); }
 
-.project-card:hover img {
-  transform: scale(1.1); /* Efek zoom saat hover */
-}
+.card-body { padding: 20px; display: flex; flex-direction: column; flex-grow: 1; }
+.project-desc { font-size: 0.9em; color: #94a3b8; margin-bottom: 20px; flex-grow: 1; }
 
-.card-body {
-  padding: 20px;
-  display: flex;
-  flex-direction: column;
-  flex-grow: 1;
-}
+.btn-sm { font-size: 0.85em; padding: 8px 20px; width: fit-content; }
 
-.project-desc {
-  font-size: 0.9em;
-  color: #d1d5db;
-  margin-bottom: 20px;
-  flex-grow: 1;
-}
-
-/* Tombol Kecil untuk di dalam Card */
-.btn-sm {
-  font-size: 0.85em;
-  padding: 8px 20px;
-  width: fit-content;
-}
-
-/* Tombol Outline (Transparan) untuk di Beranda */
+/* Tombol Outline (Transparan) */
 .btn-outline {
   background: transparent;
-  border: 2px solid #14B8A6;
-  color: #14B8A6;
-  margin-left: 10px; /* Jarak dari tombol sebelah kiri */
+  border: 2px solid #3b82f6; /* Outline Biru */
+  color: #3b82f6;
+  margin-left: 10px; 
 }
-
 .btn-outline:hover {
-  background: #14B8A6;
-  color: #0b0b0f;
-  box-shadow: 0 0 15px rgba(20, 184, 166, 0.4);
+  background: #2563eb;
+  color: #fff;
+  box-shadow: 0 0 15px rgba(37, 99, 235, 0.4);
+  border-color: #2563eb;
 }
 
-/* Responsif untuk tombol di HP agar tidak mepet */
 @media (max-width: 768px) {
   .btn-outline {
-    margin-left: 0;
-    margin-top: 15px;
-    display: block; /* Agar turun ke bawah di HP */
-    text-align: center;
+    margin-left: 0; margin-top: 15px; display: block; text-align: center;
   }
 }
