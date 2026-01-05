@@ -332,3 +332,79 @@ footer { text-align: center; padding: 25px 20px; color: #4b5563; font-size: 14px
     background-position: 0% 50%;
   }
 }
+
+/* =========================================
+   8. PROJECT PAGE STYLES (Tambahan Baru)
+========================================= */
+
+/* Mengatur layout kartu proyek */
+.project-card {
+  padding: 0; /* Reset padding bawaan card */
+  overflow: hidden; /* Agar gambar tidak keluar radius */
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+}
+
+.img-wrapper {
+  width: 100%;
+  height: 180px;
+  overflow: hidden;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.project-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Gambar full mengisi kotak */
+  transition: transform 0.5s ease;
+}
+
+.project-card:hover img {
+  transform: scale(1.1); /* Efek zoom saat hover */
+}
+
+.card-body {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.project-desc {
+  font-size: 0.9em;
+  color: #d1d5db;
+  margin-bottom: 20px;
+  flex-grow: 1;
+}
+
+/* Tombol Kecil untuk di dalam Card */
+.btn-sm {
+  font-size: 0.85em;
+  padding: 8px 20px;
+  width: fit-content;
+}
+
+/* Tombol Outline (Transparan) untuk di Beranda */
+.btn-outline {
+  background: transparent;
+  border: 2px solid #14B8A6;
+  color: #14B8A6;
+  margin-left: 10px; /* Jarak dari tombol sebelah kiri */
+}
+
+.btn-outline:hover {
+  background: #14B8A6;
+  color: #0b0b0f;
+  box-shadow: 0 0 15px rgba(20, 184, 166, 0.4);
+}
+
+/* Responsif untuk tombol di HP agar tidak mepet */
+@media (max-width: 768px) {
+  .btn-outline {
+    margin-left: 0;
+    margin-top: 15px;
+    display: block; /* Agar turun ke bawah di HP */
+    text-align: center;
+  }
+}
