@@ -354,10 +354,11 @@ footer { text-align: center; padding: 25px 20px; color: #64748b; font-size: 14px
 /* Tombol Outline (Transparan) */
 .btn-outline {
   background: transparent;
-  border: 2px solid #3b82f6; /* Outline Biru */
+  border: 2px solid #3b82f6; /* Warna Biru */
   color: #3b82f6;
-  margin-left: 10px; 
+  /* margin-left: 10px;  <-- HAPUS BARIS INI agar posisi seimbang */
 }
+
 .btn-outline:hover {
   background: #2563eb;
   color: #fff;
@@ -365,8 +366,11 @@ footer { text-align: center; padding: 25px 20px; color: #64748b; font-size: 14px
   border-color: #2563eb;
 }
 
+/* Update Responsif HP */
 @media (max-width: 768px) {
   .btn-outline {
-    margin-left: 0; margin-top: 15px; display: block; text-align: center;
+    /* margin-left: 0; <-- HAPUS JUGA INI karena sudah pakai gap di HTML */
+    margin-top: 0; /* Reset margin top jika ada */
+    width: auto;   /* Biarkan lebar menyesuaikan teks */
   }
 }
