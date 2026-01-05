@@ -75,11 +75,15 @@ const navLi = document.querySelectorAll(".nav-menu a");
 const currentUrl = window.location.href;
 
 navLi.forEach((a) => {
-  // Cek apakah link href sesuai dengan URL browser saat ini
+  // 1. Hapus dulu class 'active' dari SEMUA link (Reset)
+  a.classList.remove("active");
+
+  // 2. Baru tambahkan ke yang sesuai URL browser saat ini
   if (a.href === currentUrl) {
     a.classList.add("active");
   }
 });
+
 
 // ===================================
 // 4. MUSIC PLAYER
