@@ -60,19 +60,17 @@ body {
 ========================================= */
 .navbar {
   position: fixed; 
-  top: 25px; /* Jarak dari sisi atas layar */
+  top: 25px;
   left: 50%; 
-  transform: translateX(-50%); /* Trik agar navbar persis di tengah layar */
-  
-  /* Ukuran Navbar Diperbesar */
+  transform: translateX(-50%);
   width: 92%; 
   max-width: 1050px; 
-  padding: 18px 50px; /* Bantalan dalam (atas-bawah, kiri-kanan) dipertebal */
+  padding: 15px 30px; /* DIUBAH: Padding kiri-kanan dikurangi dari 50px jadi 30px */
   
-  background: rgba(11, 11, 15, 0.8); /* Transparan gelap */
-  backdrop-filter: blur(15px);       /* Efek blur kaca */
+  background: rgba(11, 11, 15, 0.8);
+  backdrop-filter: blur(15px);
   border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: 60px; /* Sudut sangat bulat */
+  border-radius: 60px;
   z-index: 1000;
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
 }
@@ -87,8 +85,11 @@ body {
 
 .nav-menu { 
   display: flex; 
-  gap: 45px; /* Jarak antar teks menu diperlebar agar tidak sempit */
+  gap: 25px; /* DIKURANGI: Dari 45px jadi 25px agar muat 5 menu */
+  justify-content: center;
+  align-items: center;
 }
+
 
 .nav-menu a {
   color: #d1d5db; 
@@ -216,20 +217,24 @@ body {
    KHUSUS HP (BUBBLE CHAT FIX)
 ========================================= */
 @media (max-width: 768px) {
-  .mager-bubble {
-    left: auto; right: -40px; top: -45px; margin-left: 0;
-    width: 120px; height: 50px; padding: 0 12px;
-    border-radius: 12px; border-bottom-left-radius: 0; 
+  /* Navbar menempel di atas agar lebih luas */
+  .navbar { 
+    width: 100%; 
+    top: 0; 
+    border-radius: 0 0 20px 20px; /* Sudut tumpul hanya di bawah */
+    padding: 15px 10px;
   }
-  .text-line { font-size: 10px; }
-  .mager-bubble::after {
-    left: 0; bottom: -10px; border: none; 
-    width: 0; height: 0; 
-    border-top: 10px solid #ffffff;       
-    border-right: 10px solid transparent; 
-    border-left: 0;                       
+  
+  /* Menu di HP Font-nya dikecilkan & Jarak dirapatkan */
+  .nav-menu { 
+    gap: 12px; 
+  }
+  
+  .nav-menu a {
+    font-size: 13px; /* Ukuran font lebih kecil biar muat */
   }
 }
+
 
 /* =========================================
    6. SECTIONS & CARDS (Layanan, Tools, dll)
